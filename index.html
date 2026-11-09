@@ -28,6 +28,9 @@ section[id]{scroll-margin-top:84px}
 .rv blockquote::before{content:"“";display:block;font-family:Georgia,serif;font-size:48px;line-height:.6;color:#B9D3EE;margin-bottom:8px}
 .rv figcaption{display:flex;flex-direction:column;gap:2px;font-size:15px}
 .rv figcaption span{color:#6B7C95;font-size:14px}
+.vip-timer{align-self:flex-start;background:#B9D3EE;color:#1F3352;border-radius:999px;padding:6px 14px;font-size:14px;font-weight:700}
+.mbar{display:none}
+@media (max-width: 760px){footer{padding-bottom:96px !important}.mbar{display:block;position:fixed;left:12px;right:12px;bottom:max(12px, env(safe-area-inset-bottom));z-index:60;transform:translateY(160%);transition:transform .3s ease}.mbar.show{transform:none}.mbar a{display:flex;justify-content:center;align-items:center;gap:8px;padding:16px;border-radius:999px;background:#B9D3EE;color:#1F3352;text-decoration:none;font-weight:700;font-size:17px;box-shadow:0 8px 24px rgba(0,0,0,.35)}}
 .faq{display:flex;flex-direction:column;border-top:1px solid #3D5880}
 .faq details{border-bottom:1px solid #3D5880;padding:4px 0}
 .faq summary{cursor:pointer;list-style:none;padding:18px 40px 18px 0;font-size:19px;font-weight:600;position:relative}
@@ -171,13 +174,15 @@ section[id]{scroll-margin-top:84px}
 <span>Все уроки, подкасты, эфиры, рабочая тетрадь, задания и медитация. Доступ навсегда.</span>
 <a href="https://payform.ru/52cZgWr/" data-goal="pay_base" style="margin-top: auto; display: block; text-align: center; padding: 16px; border: 2px solid #1F3352; border-radius: 999px; color: #1F3352; text-decoration: none; font-weight: 700">Оплатить</a>
 </div>
-<div style="background: #1F3352; color: #F5F1EC; border-radius: 24px; padding: 36px; display: flex; flex-direction: column; gap: 14px">
+<div id="vip-card" style="background: #1F3352; color: #F5F1EC; border-radius: 24px; padding: 36px; display: flex; flex-direction: column; gap: 14px">
 <span style="font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; color: #B9D3EE">VIP с чатом · до 1 декабря</span>
+<span id="vip-timer" class="vip-timer" hidden></span>
 <span style="font-size: 46px; font-weight: 700">9 900 ₽</span>
 <span>Всё из «Самостоятельного» + общий чат группы с Екатериной до 30 декабря, ответы ежедневно с 10:00 до 18:00.</span>
 <a href="https://payform.ru/6lcZgXh/" data-goal="pay_vip" style="margin-top: auto; display: block; text-align: center; padding: 16px; background: #B9D3EE; border-radius: 999px; color: #1F3352; text-decoration: none; font-weight: 700">Оплатить</a>
 </div>
 </div>
+<p style="margin: 0; text-align: center; font-size: 16px; color: #4A5F7D">Если не подойдёт — вернём деньги за неоткрытые дни, а до открытия доступа — всю сумму. <a href="oferta.html" style="color: #1F3352">Условия возврата</a></p>
 </div>
 </section>
 
@@ -204,6 +209,32 @@ section[id]{scroll-margin-top:84px}
 </footer>
 
 </div>
+<div class="mbar" id="mbar" aria-hidden="true"><a href="#tariffs-2" data-goal="mobile_bar">Записаться · от 7 400 ₽</a></div>
+<script>
+(function(){
+  // Счётчик VIP: продажа до 01.12.2026 включительно (МСК)
+  var end=new Date('2026-12-01T23:59:59+03:00').getTime();
+  var card=document.getElementById('vip-card'),tm=document.getElementById('vip-timer');
+  function plural(n,a,b,c){var m=n%10,h=n%100;return (m==1&&h!=11)?a:(m>=2&&m<=4&&(h<10||h>=20))?b:c}
+  var left=end-Date.now();
+  if(left<=0){
+    card.style.opacity='.55';
+    var btn=card.querySelector('a');btn.removeAttribute('href');btn.textContent='Набор в VIP закрыт';btn.style.cursor='default';btn.removeAttribute('data-goal');
+  }else{
+    var d=Math.ceil(left/86400000);
+    tm.textContent= d<=1 ? 'Сегодня последний день' : 'До закрытия осталось '+d+' '+plural(d,'день','дня','дней');
+    tm.hidden=false;
+  }
+  // Нижняя кнопка на телефоне: после первого экрана, прячется у тарифов
+  var bar=document.getElementById('mbar'),tar=document.getElementById('tariffs-2'),hero=document.querySelector('section');
+  function upd(){
+    var past=hero.getBoundingClientRect().bottom<0;
+    var r=tar.getBoundingClientRect(),atTar=r.top<window.innerHeight&&r.bottom>0;
+    bar.classList.toggle('show',past&&!atTar);
+  }
+  window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+})();
+</script>
 <script>
 // Цели Яндекс Метрики: клик по элементу с data-goal
 document.addEventListener('click',function(e){var a=e.target.closest('[data-goal]');if(a&&window.ym&&window.YM_ID){try{ym(window.YM_ID,'reachGoal',a.dataset.goal)}catch(_){}}});
