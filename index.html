@@ -22,6 +22,12 @@ img{max-width:100%}
 .topbar{position:sticky;top:0;z-index:50;background:rgba(31,51,82,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(185,211,238,.15)}
 section[id]{scroll-margin-top:84px}
 @media (max-width: 560px){.topbar header{padding:8px 16px !important}.tb-logo{width:40px !important;height:40px !important}.tb-name{font-size:15px !important;line-height:1.2}.tb-btn{padding:9px 14px !important;font-size:14px;white-space:nowrap}section[id]{scroll-margin-top:64px}}
+.rv-grid{columns:3 300px;column-gap:24px}
+.rv{break-inside:avoid;margin:0 0 24px;background:#FFFFFF;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:16px}
+.rv blockquote{margin:0;font-size:16px;line-height:1.6}
+.rv blockquote::before{content:"“";display:block;font-family:Georgia,serif;font-size:48px;line-height:.6;color:#B9D3EE;margin-bottom:8px}
+.rv figcaption{display:flex;flex-direction:column;gap:2px;font-size:15px}
+.rv figcaption span{color:#6B7C95;font-size:14px}
 .faq{display:flex;flex-direction:column;border-top:1px solid #3D5880}
 .faq details{border-bottom:1px solid #3D5880;padding:4px 0}
 .faq summary{cursor:pointer;list-style:none;padding:18px 40px 18px 0;font-size:19px;font-weight:600;position:relative}
@@ -122,6 +128,24 @@ section[id]{scroll-margin-top:84px}
 <p style="margin: 0; font-size: 18px">Более тысячи консультаций и десятки выпускников курсов — каждый со своим результатом.</p>
 </div>
 <img src="assets/katya2.jpg" alt="Екатерина Сопикова" style="flex: 1 1 300px; min-width: 0; max-width: 380px; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 24px">
+</div>
+</section>
+
+<section id="reviews" style="background: #F5F1EC; color: #1F3352; padding: 88px 24px">
+<div style="max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px">
+<div style="text-align: center; display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0; font-family: 'Marck Script', cursive; font-weight: 400; font-size: 60px">Отзывы</h2>
+<p style="margin: 0; font-size: 17px; color: #4A5F7D">О консультациях, сессиях и курсах Екатерины</p>
+</div>
+<div class="rv-grid">
+<figure class="rv"><blockquote>Изначально я пришла с запросом — хочу перестать жертвовать собой и научиться жить для себя, т.к. в жизни много всего отдаю и от этого истощаюсь. … Когда мы трансформировали этот сценарий, я во всем теле чувствовала освобождение и легкость. … Сегодня я уже по-новому смотрю на ситуации и ощущаю, что начала мыслить и чувствовать иначе. И есть чувство, что дальше я смогу действовать совсем иначе и старый сценарий меня отпустил.</blockquote><figcaption><strong>Жанна</strong><span>индивидуальная сессия</span></figcaption></figure>
+<figure class="rv"><blockquote>За эту неделю я будто стала ближе к себе. Во время курса появилось ощущение, что я действительно важна для самой себя, что нужно чаще слышать себя, свои чувства и желания. … Медитации помогли мне заземлиться и почувствовать внутреннюю опору. После каждой практики приходили какие-то осознания, а внутри становилось чуть-чуть тише и спокойнее.</blockquote><figcaption><strong>Кристина</strong><span>курс медитаций</span></figcaption></figure>
+<figure class="rv"><blockquote>Маленькие, казалось бы, задания, но я их делала очень глубоко… Каждый божий день я проживала именно то, что мне было нужно именно в этот день! … И даже просто не сами медитации, а задания на каждый день — имели потрясающий эффект.</blockquote><figcaption><strong>Оксана</strong><span>курс «Точка Тишины»</span></figcaption></figure>
+<figure class="rv"><blockquote>Я даже не ожидала, что это будет НАСТОЛЬКО подробно. … Мне стало проще понимать свое поведение и реакцию на поведение близких. Что со мной все нормально! Это главная ценность для меня. … А еще какая-то опора внутри начала появляться. Когда о себе узнаешь, все-таки, становишься более уверенной в себе.</blockquote><figcaption><strong>Татьяна</strong><span>разбор дизайна человека</span></figcaption></figure>
+<figure class="rv"><blockquote>В первую очередь — спасибо за этот мини-формат. Реально можно найти 10 минут утром и вечером, чтобы послушать медитацию и описание на день. Все было понятно и главное как будто в нужный момент. … День был ужасный… В итоге закрылась в комнате и просто заставила себя сделать медитацию. И как итог, я реально вышла из нее в другом состоянии.</blockquote><figcaption><strong>Мария</strong><span>курс медитаций</span></figcaption></figure>
+<figure class="rv"><blockquote>Мне было очень комфортно рассказать о своих проблемах, и я была не просто глубоко услышана, но и проведена к самым корням их. … Я возможно еще не все даже осознала, но уже ловлю себя на том, что использую данные мне рекомендации и вижу разницу в моем восприятии. Это вдохновляет и наполняет уверенностью в себе.</blockquote><figcaption><strong>Елена</strong><span>индивидуальная сессия</span></figcaption></figure>
+</div>
+<a href="https://t.me/otzuvhdsopikova" target="_blank" rel="noopener" style="align-self: center; color: #1F3352; font-weight: 600; text-decoration: underline; text-underline-offset: 4px">Все отзывы в Telegram-канале →</a>
 </div>
 </section>
 
