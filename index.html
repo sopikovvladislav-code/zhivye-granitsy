@@ -19,6 +19,13 @@ a{color:#B9D3EE}a:hover{color:#FFFFFF}
 @media (max-width: 760px){.pro-vas{width:auto !important;height:auto !important;margin-left:0 !important;text-align:left !important;font-size:52px !important}}
 html{scroll-behavior:smooth}
 img{max-width:100%}
+.faq{display:flex;flex-direction:column;border-top:1px solid #3D5880}
+.faq details{border-bottom:1px solid #3D5880;padding:4px 0}
+.faq summary{cursor:pointer;list-style:none;padding:18px 40px 18px 0;font-size:19px;font-weight:600;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:12px;font-size:28px;font-weight:400;color:#B9D3EE;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{margin:0 0 20px;color:#DCE6F2;font-size:17px}
 </style>
 </head>
 <body>
@@ -29,7 +36,7 @@ img{max-width:100%}
 <img src="assets/logo.png" alt="Логотип Екатерины Сопиковой" style="width: 52px; height: 52px; background: #F5F1EC; border-radius: 50%; padding: 4px">
 <span style="font-weight: 700; font-size: 17px">Екатерина Сопикова</span>
 </div>
-<a href="#tariffs-2" style="display: inline-block; padding: 12px 22px; border: 2px solid #B9D3EE; border-radius: 999px; color: #B9D3EE; text-decoration: none; font-weight: 600">Выбрать тариф</a>
+<a href="#tariffs-2" data-goal="header_tariffs" style="display: inline-block; padding: 12px 22px; border: 2px solid #B9D3EE; border-radius: 999px; color: #B9D3EE; text-decoration: none; font-weight: 600">Выбрать тариф</a>
 </header>
 
 <section style="max-width: 1200px; margin: 0 auto; padding: 32px 24px 88px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
@@ -38,7 +45,7 @@ img{max-width:100%}
 <h1 style="margin: 0; font-family: 'Marck Script', cursive; font-weight: 400; font-size: clamp(56px, 8vw, 104px); line-height: 1">Живые границы</h1>
 <p style="margin: 0; font-size: 20px; max-width: 540px; color: #DCE6F2">Научитесь говорить «нет» без чувства вины, перестаньте терпеть то, что вам не подходит, и начните выбирать себя — спокойно и уверенно.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center">
-<a href="#tariffs-2" style="display: inline-block; padding: 18px 34px; background: #B9D3EE; color: #1F3352; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 18px">Записаться на интенсив</a>
+<a href="#tariffs-2" data-goal="hero_cta" style="display: inline-block; padding: 18px 34px; background: #B9D3EE; color: #1F3352; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 18px">Записаться на интенсив</a>
 <span style="font-size: 15px; color: #B9CBE0">Старт сразу после оплаты</span>
 </div>
 </div>
@@ -119,15 +126,30 @@ img{max-width:100%}
 <span style="font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600">Самостоятельный</span>
 <span style="font-size: 46px; font-weight: 700">7 400 ₽</span>
 <span>Все уроки, подкасты, эфиры, рабочая тетрадь, задания и медитация. Доступ навсегда.</span>
-<a href="https://payform.ru/52cZgWr/" style="margin-top: auto; display: block; text-align: center; padding: 16px; border: 2px solid #1F3352; border-radius: 999px; color: #1F3352; text-decoration: none; font-weight: 700">Оплатить</a>
+<a href="https://payform.ru/52cZgWr/" data-goal="pay_base" style="margin-top: auto; display: block; text-align: center; padding: 16px; border: 2px solid #1F3352; border-radius: 999px; color: #1F3352; text-decoration: none; font-weight: 700">Оплатить</a>
 </div>
 <div style="background: #1F3352; color: #F5F1EC; border-radius: 24px; padding: 36px; display: flex; flex-direction: column; gap: 14px">
 <span style="font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; color: #B9D3EE">VIP с чатом · до 1 декабря</span>
 <span style="font-size: 46px; font-weight: 700">9 900 ₽</span>
 <span>Всё из «Самостоятельного» + общий чат группы с Екатериной до 30 декабря, ответы ежедневно с 10:00 до 18:00.</span>
-<a href="https://payform.ru/6lcZgXh/" style="margin-top: auto; display: block; text-align: center; padding: 16px; background: #B9D3EE; border-radius: 999px; color: #1F3352; text-decoration: none; font-weight: 700">Оплатить</a>
+<a href="https://payform.ru/6lcZgXh/" data-goal="pay_vip" style="margin-top: auto; display: block; text-align: center; padding: 16px; background: #B9D3EE; border-radius: 999px; color: #1F3352; text-decoration: none; font-weight: 700">Оплатить</a>
 </div>
 </div>
+</div>
+</section>
+
+<section id="faq" style="padding: 88px 24px">
+<div style="max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+<h2 style="margin: 0; font-family: 'Marck Script', cursive; font-weight: 400; font-size: 60px; text-align: center">Вопросы и ответы</h2>
+<div class="faq">
+<details><summary>Подойдёт ли мне интенсив?</summary><p>Да, если вы узнали себя в списке «Это про вас, если…»: вам трудно отказывать, после «нет» приходит чувство вины, вы часто ставите чужие интересы выше своих. Специальной подготовки не нужно. Интенсив для взрослых (18+). Он не заменяет помощь врача или психотерапевта: если вы сейчас в остром кризисе, начните со специалиста.</p></details>
+<details><summary>Сколько времени нужно в день?</summary><p>Каждый день открывается один урок, аудиоподкаст и практическое задание. Проходить их можно в любое удобное время: утром, в дороге или вечером. Подкасты удобно слушать на прогулке.</p></details>
+<details><summary>Что если я не успею?</summary><p>Ничего страшного. Материалы не сгорают: все открытые дни остаются у вас навсегда, и к ним можно вернуться в любой момент. Проходите в своём темпе, хоть по дню в неделю.</p></details>
+<details><summary>Как получить доступ после оплаты?</summary><p>Сразу после оплаты откройте бота <a href="https://t.me/zhivye_granitsy_bot" style="color: #B9D3EE">@zhivye_granitsy_bot</a>, нажмите «Старт» и укажите email или телефон, который вводили при оплате. Бот откроет доступ, и материалы первого дня придут сразу. Каждый следующий день приходит в 10:00 по московскому времени.</p></details>
+<details><summary>Чем отличается VIP?</summary><p>Материалы в обоих тарифах одинаковые. В VIP дополнительно есть общий чат группы с Екатериной до 30 декабря: можно задавать вопросы по заданиям, ответы ежедневно с 10:00 до 18:00 МСК. Тариф VIP доступен для покупки до 1 декабря.</p></details>
+<details><summary>Можно ли вернуть деньги?</summary><p>Да. До открытия доступа возвращается вся сумма, после — стоимость ещё не открытых дней. Подробно — в разделе 6 <a href="oferta.html" style="color: #B9D3EE">оферты</a>.</p></details>
+</div>
+<a href="#tariffs-2" data-goal="faq_to_tariffs" style="align-self: center; display: inline-block; padding: 18px 34px; background: #B9D3EE; color: #1F3352; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 18px">Выбрать тариф</a>
 </div>
 </section>
 
@@ -139,5 +161,9 @@ img{max-width:100%}
 </footer>
 
 </div>
+<script>
+// Цели Яндекс Метрики: клик по элементу с data-goal
+document.addEventListener('click',function(e){var a=e.target.closest('[data-goal]');if(a&&window.ym&&window.YM_ID){try{ym(window.YM_ID,'reachGoal',a.dataset.goal)}catch(_){}}});
+</script>
 </body>
 </html>
